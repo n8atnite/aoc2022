@@ -1,7 +1,4 @@
 def is_overlapped(a, b):
-    '''
-    check if a is contained within b
-    '''
     if a[0] <= b[1]:
         if a[1] >= b[0]:
             return True

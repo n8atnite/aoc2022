@@ -11,7 +11,7 @@ class Folder:
         self.files = []
 
     def __str__(self):
-        return '../%s/%s' % (self.parent.name, self.name)
+        return self.getPath()
 
     def getPath(self, current=''):
         current = '/%s' % (self.name,) + current if self.name != '/' else current
@@ -32,7 +32,7 @@ class Folder:
             return sum([f.size for f in self.files])
 
 def getAllSizes(folder, sizes):
-    sizes[folder.getPath()] = folder.getSize()
+    sizes[str(folder)] = folder.getSize()
     for child in folder.children.values():
         getAllSizes(child, sizes)
 

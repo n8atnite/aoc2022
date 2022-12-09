@@ -1,7 +1,4 @@
 def is_contained(a, b):
-    '''
-    check if a is contained within b
-    '''
     if a[0] >= b[0]:
         if a[1] <= b[1]:
             return True
