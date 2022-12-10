@@ -18,7 +18,7 @@ CORRECTIONS = {
 }
 
 calculatePos = lambda p, d : tuple((sum(i) for i in zip(p, d)))
-def calculateFar(x, y):
+def calculateFollow(x, y):
     diffx = x[0]-y[0]
     diffy = x[1]-y[1]
     res = ''
@@ -37,9 +37,9 @@ for direction, amount in entries:
     for i in range(int(amount)):
         rope[0] = calculatePos(rope[0], DIRECTIONS[direction])
         for j in range(1, len(rope)):
-            farDirection = calculateFar(rope[j-1], rope[j])
-            if farDirection:
-                rope[j] = calculatePos(rope[j-1], CORRECTIONS[farDirection])
+            followDirection = calculateFollow(rope[j-1], rope[j])
+            if followDirection:
+                rope[j] = calculatePos(rope[j-1], CORRECTIONS[followDirection])
                 if j == 9:
                     visited.add(rope[j])
 
